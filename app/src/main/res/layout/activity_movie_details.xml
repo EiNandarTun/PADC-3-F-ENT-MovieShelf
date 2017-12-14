@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/iv_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.7"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_background" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_img_movie"
+                    android:layout_width="155dp"
+                    android:layout_height="200dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_movies_details" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="1dp">
+
+                    <ImageView
+                        android:id="@+id/iv_fav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_favorite_orange_36dp" />
+
+                    <TextView
+                        android:id="@+id/tv_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="8.5"
+                        android:textColor="@color/icons"
+                        android:textStyle="bold" />
+
+                </FrameLayout>
+
+                <ImageView
+                    android:id="@+id/iv_free_crop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/iv_img_movie"
+                    android:layout_alignRight="@id/iv_img_movie"
+                    android:layout_marginBottom="14dp"
+                    android:src="@drawable/ic_crop_free_white_36dp" />
+
+                <RatingBar
+                    android:id="@+id/rb_user_rating"
+                    style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_img_movie"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:numStars="7"
+                    android:rating="7.5"
+                    android:theme="@style/RatingBar" />
+
+                <TextView
+                    android:id="@+id/tv_rating_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rb_user_rating"
+                    android:layout_marginLeft="5dp"
+                    android:text="Released : January 1994"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_toRightOf="@id/iv_img_movie"
+                    android:text="Fear can hold you  prisoner. Hope can set you free."
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ScrollView
+                    android:id="@+id/sv_synopsis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_sub_title"
+                    android:layout_toRightOf="@id/iv_img_movie">
+
+                    <TextView
+                        android:id="@+id/tv_synopsis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Accounts the encounters of an in the past effective broker as a detainee in the melancholy jailhouse of Shawshank in the wake of being discovered liable of a wrongdoing he guarantees he didn’t submit. The film depicts the man s special method for managing his new, painful life; along the way he gets to know various kindred detainees, most prominently an astute long haul prisoner named RedAccounts the encounters of an in the past effective broker as a detainee in the melancholy jailhouse of Shawshank in the wake of being discovered liable of a wrongdoing he guarantees he didn’t submit. The film depicts the man s special method for managing his new, painful life; along the way he gets to know various kindred detainees, most prominently an astute long haul prisoner named Red"
+                        android:textColor="@color/white" />
+
+                </ScrollView>
+
+            </RelativeLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_movie_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_add_white_24dp"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="right|bottom" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_dark"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/tv_movies_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/primary"
+            android:paddingTop="11dp"
+            android:text="The Shawshank Redemption"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_movie_genera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_movies_title"
+            android:divider="@drawable/divider"
+            android:dividerPadding="2dp"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <TextView
+                android:id="@+id/tv_drama"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/buttonroundedstyle"
+                android:text="Drama"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_crime"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/buttonroundedstyle"
+                android:text="Crime"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_movie_genera"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/round_button"
+            android:text="2hr 22mins" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_movie_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_time" />
+
+        <TextView
+            android:id="@+id/tv_title_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rv_movie_details"
+            android:layout_marginTop="10dp"
+            android:text="@string/title_review"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_movie_review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title_review"
+            android:layout_marginTop="20dp"
+            android:text="@string/movie_review"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
