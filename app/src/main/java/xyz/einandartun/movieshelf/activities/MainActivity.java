@@ -1,5 +1,6 @@
 package xyz.einandartun.movieshelf.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,8 +16,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.einandartun.movieshelf.R;
 import xyz.einandartun.movieshelf.adapters.MovieShelfAdapter;
+import xyz.einandartun.movieshelf.delegates.MovieActionDelegate;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MovieActionDelegate {
 
 //    RecyclerView rvMovieShelf = findViewById(R.id.rv_movie_shelf);
 
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this,this);
 
-        movieShelfAdapter = new MovieShelfAdapter();
+        movieShelfAdapter = new MovieShelfAdapter(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
 
@@ -72,5 +74,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTapMovieItems() {
+        Intent intent = new Intent(getApplicationContext(),MovieDetailsActivity.class );
+        startActivity(intent);
     }
 }

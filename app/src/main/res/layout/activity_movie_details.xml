@@ -118,7 +118,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
+                        android:lineSpacingMultiplier="1"
                         android:text="Accounts the encounters of an in the past effective broker as a detainee in the melancholy jailhouse of Shawshank in the wake of being discovered liable of a wrongdoing he guarantees he didn’t submit. The film depicts the man s special method for managing his new, painful life; along the way he gets to know various kindred detainees, most prominently an astute long haul prisoner named RedAccounts the encounters of an in the past effective broker as a detainee in the melancholy jailhouse of Shawshank in the wake of being discovered liable of a wrongdoing he guarantees he didn’t submit. The film depicts the man s special method for managing his new, painful life; along the way he gets to know various kindred detainees, most prominently an astute long haul prisoner named Red"
+                        android:textSize="16sp"
                         android:textColor="@color/white" />
 
                 </ScrollView>
@@ -138,18 +140,24 @@
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="right|bottom" />
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    >
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primary_dark"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:background="@color/primary_dark">
 
         <TextView
             android:id="@+id/tv_movies_title"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="@color/primary"
-            android:paddingTop="11dp"
+            android:padding="16dp"
             android:text="The Shawshank Redemption"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -159,6 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_movies_title"
+            android:layout_marginLeft="16dp"
             android:divider="@drawable/divider"
             android:dividerPadding="2dp"
             android:orientation="horizontal"
@@ -192,7 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_movie_genera"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_alignLeft="@id/ll_movie_genera"
             android:background="@drawable/round_button"
             android:text="2hr 22mins" />
 
@@ -209,9 +218,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/rv_movie_details"
             android:layout_marginTop="10dp"
+            android:layout_alignLeft="@id/ll_movie_genera"
             android:text="@string/title_review"
+            android:lineSpacingMultiplier="1"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_movie_review"
@@ -219,10 +230,17 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_title_review"
             android:layout_marginTop="20dp"
+            android:layout_alignLeft="@id/ll_movie_genera"
+            android:layout_toRightOf="@id/rv_movie_details"
             android:text="@string/movie_review"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            />
 
 
     </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
