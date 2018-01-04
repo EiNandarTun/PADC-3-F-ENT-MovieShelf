@@ -8,15 +8,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import xyz.einandartun.movieshelf.MovieShelfApp;
 import xyz.einandartun.movieshelf.R;
 import xyz.einandartun.movieshelf.adapters.MovieShelfAdapter;
+import xyz.einandartun.movieshelf.data.models.MoviesModel;
 import xyz.einandartun.movieshelf.delegates.MovieActionDelegate;
+import xyz.einandartun.movieshelf.events.LoadedMoviesEvent;
 
 public class MainActivity extends AppCompatActivity implements MovieActionDelegate {
 
@@ -25,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements MovieActionDelega
     @BindView(R.id.rv_movie_shelf)
     RecyclerView rvMovieShelf;
 
-    private MovieShelfAdapter movieShelfAdapter;
+    private MovieShelfAdapter mMovieShelfAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +53,27 @@ public class MainActivity extends AppCompatActivity implements MovieActionDelega
 
         ButterKnife.bind(this,this);
 
-        movieShelfAdapter = new MovieShelfAdapter(this);
+        mMovieShelfAdapter = new MovieShelfAdapter(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
 
         rvMovieShelf.setLayoutManager(linearLayoutManager);
 
-        rvMovieShelf.setAdapter(movieShelfAdapter);
+        rvMovieShelf.setAdapter(mMovieShelfAdapter);
+
+        MoviesModel.getsObjInstance().loadMovies();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -80,5 +102,11 @@ public class MainActivity extends AppCompatActivity implements MovieActionDelega
     public void onTapMovieItems() {
         Intent intent = new Intent(getApplicationContext(),MovieDetailsActivity.class );
         startActivity(intent);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public  void onMoviesLoaded(LoadedMoviesEvent event){
+        Log.d(MovieShelfApp.LOG_TAG, "on MovieLoaded :" +event.getPopularMoviesVOList().size());
+        mMovieShelfAdapter.setMovies(event.getPopularMoviesVOList());
     }
 }

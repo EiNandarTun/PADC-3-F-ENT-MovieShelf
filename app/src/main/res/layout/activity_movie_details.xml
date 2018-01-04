@@ -54,7 +54,7 @@
                         android:src="@drawable/ic_favorite_orange_36dp" />
 
                     <TextView
-                        android:id="@+id/tv_rating"
+                        android:id="@+id/tv_vote_average"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -162,46 +162,22 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
 
-        <LinearLayout
-            android:id="@+id/ll_movie_genera"
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_movie_genre"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_movies_title"
-            android:layout_marginLeft="16dp"
-            android:divider="@drawable/divider"
-            android:dividerPadding="2dp"
-            android:orientation="horizontal"
-            android:showDividers="middle">
+            android:layout_below="@id/tv_movies_title">
 
-            <TextView
-                android:id="@+id/tv_drama"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/buttonroundedstyle"
-                android:text="Drama"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
+        </android.support.v7.widget.RecyclerView>
 
-            <TextView
-                android:id="@+id/tv_crime"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/buttonroundedstyle"
-                android:text="Crime"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
-
-        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ll_movie_genera"
+            android:layout_below="@id/rv_movie_genre"
             android:layout_marginBottom="5dp"
-            android:layout_alignLeft="@id/ll_movie_genera"
+            android:layout_alignLeft="@id/rv_movie_genre"
             android:background="@drawable/round_button"
             android:text="2hr 22mins" />
 
@@ -218,25 +194,24 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/rv_movie_details"
             android:layout_marginTop="10dp"
-            android:layout_alignLeft="@id/ll_movie_genera"
+            android:layout_alignLeft="@id/rv_movie_genre"
             android:text="@string/title_review"
             android:lineSpacingMultiplier="1"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/tv_movie_review"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_movie_review"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_title_review"
             android:layout_marginTop="20dp"
-            android:layout_alignLeft="@id/ll_movie_genera"
+            android:layout_alignLeft="@id/rv_movie_genre"
             android:layout_toRightOf="@id/rv_movie_details"
-            android:text="@string/movie_review"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp"
-            />
+            >
+        </android.support.v7.widget.RecyclerView>
+
+
 
 
     </RelativeLayout>

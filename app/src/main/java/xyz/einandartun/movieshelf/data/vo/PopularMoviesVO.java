@@ -1,13 +1,16 @@
 package xyz.einandartun.movieshelf.data.vo;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by einandartun on 12/21/17.
  */
 
-public class PopularMovies {
+public class PopularMoviesVO {
     private int voteCount;
     private int Id;
     private boolean video;
+    @SerializedName("vote_average")
     private double voteAverage;
     private String title;
     private double popolarity;

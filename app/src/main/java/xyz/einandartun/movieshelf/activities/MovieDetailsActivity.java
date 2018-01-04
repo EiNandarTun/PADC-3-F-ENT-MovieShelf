@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.einandartun.movieshelf.R;
+import xyz.einandartun.movieshelf.adapters.MovieGenreAdapter;
+import xyz.einandartun.movieshelf.adapters.MovieReviewsAdapter;
 import xyz.einandartun.movieshelf.adapters.MoviesTrailerAdapter;
 
 /**
@@ -22,7 +24,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
     @BindView(R.id.rv_movie_details)
     RecyclerView rvMovieDetails;
 
+    @BindView(R.id.rv_movie_genre)
+    RecyclerView rvMovieGenre;
+
+    @BindView(R.id.rv_movie_review)
+    RecyclerView rvMovieReview;
+
     private MoviesTrailerAdapter movieTrailerAdapter;
+    private MovieGenreAdapter movieGenreAdapter;
+    private MovieReviewsAdapter movieReviewsAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +47,17 @@ public class MovieDetailsActivity extends AppCompatActivity {
         rvMovieDetails.setLayoutManager(linearLayoutManager);
 
         rvMovieDetails.setAdapter(movieTrailerAdapter);
+
+        movieGenreAdapter = new MovieGenreAdapter();
+        LinearLayoutManager linearLayoutManagerGenre = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL , false);
+        rvMovieGenre.setLayoutManager(linearLayoutManagerGenre);
+        rvMovieGenre.setAdapter(movieGenreAdapter);
+
+        movieReviewsAdapter = new MovieReviewsAdapter();
+        LinearLayoutManager linearLayoutManagerReview = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL, false);
+        rvMovieReview.setLayoutManager(linearLayoutManagerReview);
+        rvMovieReview.setAdapter(movieReviewsAdapter);
+
     }
 
     @Override

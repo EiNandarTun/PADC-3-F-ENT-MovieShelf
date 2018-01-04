@@ -13,6 +13,15 @@
         android:layout_height="wrap_content"
         >
 
+        <TextView
+            android:id="@+id/tv_release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="release"
+            android:layout_gravity="top|right"
+            android:textColor="@color/white"
+            />
+
         <ImageView
             android:id="@+id/iv_movies_trailers"
             android:layout_width="wrap_content"
@@ -31,6 +40,15 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="80dp"
                 />
+        <TextView
+            android:id="@+id/tv_movie_trailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="trailer"
+            android:layout_gravity="bottom"
+            android:textColor="@color/white"
+            />
+
 
     </FrameLayout>
 
